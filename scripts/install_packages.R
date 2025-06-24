@@ -1,0 +1,7 @@
+install.packages("optparse", repos="http://R-Forge.R-project.org")
+install.packages("tidyverse")
+install.packages('e1071')
+install.packages('parallel')
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("preprocessCore")
