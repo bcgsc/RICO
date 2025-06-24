@@ -12,12 +12,12 @@ Container building/testing was done with Apptainer version 1.3.1-1, but Singular
 During your first run in a new storage location an internet connection is required for the 
 associated containers to be pulled down.  
 
-To run the required cibersort component of the workflow you need to get permission from the [cibersort
+To run the cibersort component of the workflow you need to get permission from the [cibersort
 team](https://cibersort.stanford.edu/). Note that this is the original version of CIBERSORT, **not
 CIBERSERTx**. Once permission is granted (it may take multiple days to get approval) you can download
-the required scripts: `CIBERSORT.R` and `LM22.txt`.  Add the path to your copies of these scripts
+the required scripts: `CIBERSORT.R` and `LM22.txt`.  Add your copies of these scripts
 to the `nextflow.config` file (we recommend placing them in the `scripts` directory of this repository).
-If these script paths are not provided, RICO will skip this step automatically.
+If the files are not provided, RICO will skip this step automatically.
 
 ### Space
 
@@ -46,7 +46,8 @@ A typical sample will have a total network and disk traffic of up to 600Gb (500G
 
 A **one-time** build of the workflow container is required. This involves the installation of necessary dependencies and the transferring of scripts and references (`rico.recipe`).
 
-Firstly, a number of external genome references are required. Please download these files and place them in the`ref/` directory.
+Firstly, a number of additional references are required. Currently, these references must be requested directly from BCGSC (email: erliu@bcgsc.ca).
+Once these files have been downloaded, place them in the`ref/` directory of this repository (Total ~6GB).
 ```
 hg38_no_alt.chrlist
 hg38_no_alt.fa
@@ -58,6 +59,7 @@ hg38_no_alt.seq
 hg38_no_alt.ti
 hg38_no_alt.transcripts.fa
 Homo_sapiens.GRCh38.100.remapped.gtf
+PROFYLE_ZERO_767_matrix_20240919_hgnc.csv
 ```
 
 Then, run the following command...
