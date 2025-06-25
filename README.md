@@ -86,7 +86,9 @@ PROBCD,20_3310_R1.fastq.gz,20_3310_R2.fastq.gz
 ```
 
 Then, to run the analysis...
-`nextflow run rico_workflow.nf --out_dir output_folder --samples_file samples.csv`.
+```
+nextflow run rico_workflow.nf --out_dir output_folder --samples_file samples.csv`.
+```
 
 If nextflow is properly installed, the above command will pull down the analysis container and run on the local machine.
 For most first time users there is no need to download the container manually.
