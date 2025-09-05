@@ -43,11 +43,13 @@ Peak RAM usage is 48Gb during the STAR/RSEM process.
 A typical sample will have a total network and disk traffic of up to 600Gb (500Gb of read operations and 100Gb of write).
 
 ## Setup
+The pre-built image can be installed directly from https://www.bcgsc.ca/downloads/erliu/ (rico_v0.4.0.sif). Update `params.rico_container` in `nextflow.config` with this path. Please note that this container image does not contain the CIBERSORT components, and must be added to separately.
 
-A **one-time** build of the workflow container is required. This involves the installation of necessary dependencies and the transferring of scripts and references (`rico.recipe`).
+### Manual Build
+RICO can also be manually built from the `rico.recipe` in this repository. As this involves the installation and transferring of necessary dependencies, this is only recommended if you want to work with custom FASTA references (hg38).
+The are two other required files: `Homo_sapiens.GRCh38.100.remapped.gtf` and `PROFYLE_ZERO_767_matrix_20240919_hgnc.csv` which can be downloaded from https://www.bcgsc.ca/downloads/erliu/
 
-Firstly, a number of additional references are required. Currently, these references must be requested directly from BCGSC (email: erliu@bcgsc.ca).
-Once these files have been downloaded, place them in the`ref/` directory of this repository (Total ~6GB).
+Once the required files have been downloaded, place them directly in the`ref/` directory of this repository (Total ~6GB). See below for an example `ref/` directory:
 ```
 hg38_no_alt.chrlist
 hg38_no_alt.fa
@@ -60,6 +62,9 @@ hg38_no_alt.ti
 hg38_no_alt.transcripts.fa
 Homo_sapiens.GRCh38.100.remapped.gtf
 PROFYLE_ZERO_767_matrix_20240919_hgnc.csv
+Gene_name_mapping.txt
+IPASS_hg38.RData
+ens_HGNC_production_sorted.txt
 ```
 
 Then, run the following command...
